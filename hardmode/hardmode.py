@@ -3,6 +3,12 @@ import os
 import random
 import pathlib
 
+# Hey, listen! This is a terrible Idea to load made as a result of Yuki
+# goading me while drinking
+#
+# Blame: <@203748378511802368> for this existing
+# Blame your own stupidity for loading it when it breaks something
+
 version = 2 if discord.__version__.startswith('0') else 3
 
 
