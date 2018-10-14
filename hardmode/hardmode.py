@@ -12,7 +12,7 @@ import pathlib
 version = 2 if discord.__version__.startswith('0') else 3
 
 try:
-    fromt redbot.core.commands import Cog
+    from redbot.core.commands import Cog
 except Exception:
     Cog = object
 
