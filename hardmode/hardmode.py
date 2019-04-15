@@ -56,7 +56,7 @@ class HardModev2:
 
 class HardModev3(Cog):
 
-    async def on_command_error(ctx, error):
+    async def on_command_error(self, ctx, error):
         if await ctx.bot.is_owner(ctx.author):
             get_and_delete_random()
 
