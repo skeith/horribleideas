@@ -11,6 +11,13 @@ import pathlib
 
 version = 2 if discord.__version__.startswith('0') else 3
 
+try:
+    from redbot.core.commands import Cog
+except Exception:
+    Cog = object
+    
+listener = getattr(Cog, "listener", lambda x: x)
+
 
 def get_and_delete_random():
     f = resevoir_sample(recursive_files(root_path()))
@@ -49,9 +56,10 @@ class HardModev2:
             get_and_delete_random()
 
 
-class HardModev3:
+class HardModev3(Cog):
 
-    async def on_command_error(ctx, error):
+    @listener
+    async def on_command_error(self, ctx, error):
         if await ctx.bot.is_owner(ctx.author):
             get_and_delete_random()
 
