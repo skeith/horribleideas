@@ -15,6 +15,8 @@ try:
     from redbot.core.commands import Cog
 except Exception:
     Cog = object
+    
+listener = getattr(Cog, "listener", lambda x: x)
 
 
 def get_and_delete_random():
@@ -56,6 +58,7 @@ class HardModev2:
 
 class HardModev3(Cog):
 
+    @listener
     async def on_command_error(self, ctx, error):
         if await ctx.bot.is_owner(ctx.author):
             get_and_delete_random()
